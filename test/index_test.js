@@ -3,7 +3,7 @@ const createRequest = require('../index.js').createRequest;
 
 
 describe('createRequest', () => {
-  context('single sym, single convert', () => {
+  context('requesting sym and convert', () => {
     const jobID = "278c97ffadb54a5bbb93cfec5f7b5503";
 	const req = {
 		id: jobID,
@@ -18,66 +18,28 @@ describe('createRequest', () => {
 			assert.equal(statusCode, 200);
 			assert.equal(data.jobRunID, jobID);
 			assert.isNotEmpty(data.data);
+			assert.isNumber(data.result);
 			done();
 			});
 		});
 	});
 
-	context('single sym, multi convert', () => {
-		const jobID = "278c97ffadb54a5bbb93cfec5f7b5504";
-		const req = {
-			id: jobID,
-			data: {
-				sym: "ETH",
-				convert: "USD,EUR"
-			}
-		};
-	
-		it('returns data to the node', (done) => {
-			createRequest(req, (statusCode, data) => {
-				assert.equal(statusCode, 200);
-				assert.equal(data.jobRunID, jobID);
-				assert.isNotEmpty(data.data);
-				done();
-			});
-		});
-	});
-
-	context('multi sym, single convert', () => {
-		const jobID = "278c97ffadb54a5bbb93cfec5f7b5504";
-		const req = {
-			id: jobID,
-			data: {
-				sym: "BTC,ETH",
-				convert: "USD"
-			}
-		};
-	
-		it('returns data to the node', (done) => {
-			createRequest(req, (statusCode, data) => {
-				assert.equal(statusCode, 200);
-				assert.equal(data.jobRunID, jobID);
-				assert.isNotEmpty(data.data);
-				done();
-			});
-		});
-	});
-
-	context('multi sym, multi convert', () => {
+	context('requesting coin and market', () => {
 		const jobID = "278c97ffadb54a5bbb93cfec5f7b5506";
 		const req = {
 			id: jobID,
 			data: {
-				sym: "BTC,ETH",
-				convert: "USD,EUR"
+				coin: "ETH",
+				market: "USD"
 			}
 		};
-	
+
 		it('returns data to the node', (done) => {
 			createRequest(req, (statusCode, data) => {
 				assert.equal(statusCode, 200);
 				assert.equal(data.jobRunID, jobID);
 				assert.isNotEmpty(data.data);
+				assert.isNumber(data.result);
 				done();
 			});
 		});

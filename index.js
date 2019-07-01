@@ -33,6 +33,7 @@ const createRequest = (input, callback) => {
 				jobRunID: input.id,
 				status: "errored",
 				error: body,
+				errorMessage: body.status.error_message,
 				statusCode: response.statusCode
 			});
 		} else {

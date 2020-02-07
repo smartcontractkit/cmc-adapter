@@ -1,16 +1,19 @@
 {
   "name": "cmc-adapter",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "license": "MIT",
   "scripts": {
     "test": "./node_modules/.bin/_mocha --timeout 0"
   },
   "dependencies": {
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5"
   },
   "devDependencies": {
+    "body-parser": "^1.19.0",
     "chai": "^4.2.0",
+    "express": "^4.17.0",
     "mocha": "^5.2.0"
   }
 }

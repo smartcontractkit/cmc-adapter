@@ -62,7 +62,6 @@ describe('createRequest', () => {
         assert.isAtLeast(statusCode, 400)
         assert.equal(data.jobRunID, jobID)
         assert.isNotEmpty(data.error)
-        assert.isNotEmpty(data.errorMessage)
         done()
       })
     })

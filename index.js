@@ -1,6 +1,7 @@
 const rp = require('request-promise')
 const retries = process.env.RETRIES || 3
 const delay = process.env.RETRY_DELAY || 1000
+const timeout = process.env.TIMEOUT || 1000
 
 const requestRetry = (options, retries) => {
   return new Promise((resolve, reject) => {
@@ -61,6 +62,7 @@ const createRequest = (input, callback) => {
     headers: headerObj,
     qs: requestObj,
     json: true,
+    timeout,
     resolveWithFullResponse: true
   }
   requestRetry(options, retries)

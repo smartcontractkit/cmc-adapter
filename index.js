@@ -38,10 +38,10 @@ const requestRetry = (options, retries) => {
 
 const createRequest = (input, callback) => {
   const url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
-  const sym = input.data.sym || input.data.coin || ''
+  const sym = input.data.sym || input.data.from || input.data.coin || ''
   const cid = input.data.cid || '' // CMC allows a coin ID to be specified instead of a symbol
   // Free CMCPro API only supports a single symbol to convert
-  let convert = input.data.convert || input.data.market || ''
+  let convert = input.data.convert || input.data.to || input.data.market || ''
   let requestObj
   if (sym.length > 0) {
     requestObj = {

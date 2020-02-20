@@ -2,8 +2,8 @@
 
 ## Input Params
 
-- `sym` or `coin`: The coin to query (required)
-- `convert` or `market`: The currency to convert to (required)
+- `sym` or `from` or `coin`: The coin to query (required)
+- `convert` or `to` or `market`: The currency to convert to (required)
 - `cid`: The CMC coin ID (optional, use in place of `sym` or `coin`)
 
 ## Output Format

@@ -4,13 +4,13 @@ const delay = process.env.RETRY_DELAY || 1000
 const timeout = process.env.TIMEOUT || 1000
 
 class ValidationError extends Error {
-  constructor(message) {
+  constructor (message) {
     super(message)
     this.name = 'ValidationError'
     this.message = message
   }
 
-  toJSON() {
+  toJSON () {
     return {
       error: {
         name: this.name,
@@ -73,7 +73,7 @@ const createRequest = (input, callback) => {
       const sym = input.data.base || input.data.from || input.data.coin || input.data.sym || ''
       const cid = input.data.cid || '' // CMC allows a coin ID to be specified instead of a symbol
       // Free CMCPro API only supports a single symbol to convert
-      const convert = input.data.quote  || input.data.to || input.data.market || input.data.convert || ''
+      const convert = input.data.quote || input.data.to || input.data.market || input.data.convert || ''
       let requestObj
       if (sym.length > 0) {
         requestObj = {

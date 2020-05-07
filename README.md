@@ -1,5 +1,7 @@
 # Chainlink CoinMarketCap Pro External Adapter
 
+**This adapter has moved to our [external adapters monorepo](https://github.com/smartcontractkit/external-adapters-js)!**
+
 ## Input Params
 
 - `base`, `from`, `coin`, or `sym`: The coin to query (required)
